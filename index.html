@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLOOM Coffee x Bites | Specialty Coffee & Brunch · Hobart TAS</title>
+  <meta name="description" content="BLOOM Coffee x Bites — Hobart's beloved specialty coffee shop and brunch destination. Located at 102 Collins St, Hobart TAS 7000. Rated 4.8★ on Google. Open daily." />
+  <meta name="keywords" content="BLOOM coffee, Hobart cafe, brunch Hobart, specialty coffee Hobart, Collins Street cafe, best cafe Hobart" />
+  <meta property="og:title" content="BLOOM Coffee x Bites | Hobart" />
+  <meta property="og:description" content="Specialty coffee, creative brunch & signature drinks in the heart of Hobart." />
+  <meta property="og:type" content="restaurant" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #f7f2eb;
+      --dark: #1a1208;
+      --brown: #3d2b1a;
+      --espresso: #2c1a0e;
+      --gold: #c9a84c;
+      --blush: #e8d5c0;
+      --sage: #8a9e7a;
+      --rust: #b85c2a;
+      --light-cream: #faf7f2;
+      --text-muted: #7a6a5a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--light-cream);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* ───────── STICKY NAV ───────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 2rem;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(26, 18, 8, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: background 0.3s;
+    }
+
+    nav.scrolled {
+      background: rgba(26, 18, 8, 0.98);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--cream); font-style: italic; }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--blush);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--espresso) !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2px;
+      font-weight: 500;
+    }
+
+    .nav-cta:hover { background: #e0bb5a !important; }
+    .nav-cta::after { display: none !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--cream);
+      transition: all 0.3s;
+    }
+
+    /* ───────── HERO ───────── */
+    #hero {
+      min-height: 100vh;
+      background: var(--espresso);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(201,168,76,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 20% 70%, rgba(184,92,42,0.15) 0%, transparent 60%),
+        linear-gradient(160deg, #1a0e05 0%, #2c1a0e 50%, #1a1208 100%);
+    }
+
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px;
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      padding: 0 2rem;
+      max-width: 800px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.3s forwards;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 10vw, 8rem);
+      font-weight: 900;
+      line-height: 0.9;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.5s forwards;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 3vw, 1.7rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--blush);
+      margin: 1.5rem 0 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.7s forwards;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.9s forwards;
+    }
+
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--blush);
+      padding: 0.45rem 1rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    .badge .star { color: var(--gold); }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1.1s forwards;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--espresso);
+      padding: 0.9rem 2.2rem;
+      border-radius: 2px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+
+    .btn-primary:hover { background: #e0bb5a; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.3); }
+
+    .btn-outline {
+      border: 1px solid rgba(201,168,76,0.5);
+      color: var(--gold);
+      padding: 0.9rem 2.2rem;
+      border-radius: 2px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+
+    .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); transform: translateY(-2px); }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(247,242,235,0.4);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      animation: fadeUp 1s ease 1.5s forwards;
+      opacity: 0;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(0.6) translateY(10px); }
+    }
+
+    /* ───────── ABOUT STRIP ───────── */
+    #about {
+      background: var(--dark);
+      padding: 5rem 2rem;
+    }
+
+    .about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text h2 em { color: var(--gold); font-style: italic; }
+
+    .about-text p {
+      color: var(--blush);
+      line-height: 1.8;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 2rem;
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 4px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ───────── SECTION HEADER ───────── */
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header .eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: var(--dark);
+      line-height: 1.15;
+    }
+
+    .section-header h2 em { font-style: italic; color: var(--rust); }
+
+    .section-header.light h2 { color: var(--cream); }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      margin: 1.5rem auto 0;
+    }
+
+    /* ───────── MENU ───────── */
+    #menu {
+      padding: 6rem 2rem;
+      background: var(--light-cream);
+    }
+
+    .menu-tabs {
+      display: flex;
+      gap: 0;
+      justify-content: center;
+      margin-bottom: 3rem;
+      border: 1px solid rgba(61,43,26,0.15);
+      border-radius: 4px;
+      overflow: hidden;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      flex: 1;
+      padding: 0.8rem 1rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: all 0.25s;
+      min-width: 80px;
+    }
+
+    .tab.active {
+      background: var(--espresso);
+      color: var(--gold);
+    }
+
+    .tab:hover:not(.active) { background: rgba(61,43,26,0.06); color: var(--brown); }
+
+    .menu-section { display: none; }
+    .menu-section.active { display: block; }
+
+    .menu-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .menu-card {
+      background: #fff;
+      border-radius: 6px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 12px rgba(61,43,26,0.06);
+      border: 1px solid rgba(61,43,26,0.06);
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--gold);
+      transform: scaleY(0);
+      transition: transform 0.25s;
+      transform-origin: bottom;
+    }
+
+    .menu-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(61,43,26,0.12); }
+    .menu-card:hover::before { transform: scaleY(1); }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--brown);
+      line-height: 1.3;
+    }
+
+    .card-price {
+      font-weight: 600;
+      color: var(--rust);
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+
+    .card-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .card-tags {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-top: 0.8rem;
+    }
+
+    .tag {
+      background: rgba(138,158,122,0.12);
+      color: var(--sage);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 100px;
+      border: 1px solid rgba(138,158,122,0.25);
+    }
+
+    /* Drinks simple list */
+    .drinks-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .drinks-group h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--brown);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(61,43,26,0.1);
+    }
+
+    .drink-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px dashed rgba(61,43,26,0.07);
+      font-size: 0.88rem;
+    }
+
+    .drink-name { color: var(--dark); }
+    .drink-price { color: var(--rust); font-weight: 600; font-size: 0.85rem; }
+
+    .drink-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Signature drinks */
+    .sig-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .sig-card {
+      background: var(--espresso);
+      border-radius: 6px;
+      padding: 1.5rem;
+      transition: all 0.25s;
+      border: 1px solid rgba(201,168,76,0.12);
+    }
+
+    .sig-card:hover { transform: translateY(-4px); border-color: rgba(201,168,76,0.35); }
+
+    .sig-card .card-name { color: var(--gold); }
+    .sig-card .card-price { color: var(--blush); }
+    .sig-card .card-desc { color: rgba(232,213,192,0.6); }
+
+    /* ───────── LOCATION / MAP ───────── */
+    #visit {
+      background: var(--dark);
+      padding: 6rem 2rem;
+    }
+
+    .visit-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .visit-info .section-header { text-align: left; margin-bottom: 2.5rem; }
+    .visit-info .section-header h2 { color: var(--cream); }
+    .visit-info .section-header .eyebrow { color: var(--gold); }
+
+    .info-block {
+      margin-bottom: 1.8rem;
+    }
+
+    .info-block h4 {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .info-block p, .info-block a {
+      color: var(--blush);
+      font-size: 0.95rem;
+      text-decoration: none;
+      line-height: 1.8;
+    }
+
+    .info-block a:hover { color: var(--gold); }
+
+    .hours-table { width: 100%; }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.35rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.9rem;
+      color: var(--blush);
+    }
+
+    .hours-row span:last-child { color: var(--gold); }
+
+    .open-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(138,158,122,0.15);
+      color: var(--sage);
+      border: 1px solid rgba(138,158,122,0.3);
+      padding: 0.3rem 0.8rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .open-dot {
+      width: 6px; height: 6px;
+      background: var(--sage);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    .map-container {
+      border-radius: 8px;
+      overflow: hidden;
+      height: 420px;
+      border: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(20%) sepia(10%);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--blush);
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 0.6rem 1.1rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      transition: all 0.25s;
+    }
+
+    .social-link:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ───────── REVIEWS ───────── */
+    #reviews {
+      padding: 6rem 2rem;
+      background: var(--cream);
+    }
+
+    .reviews-grid {
+      max-width: 1100px;
+      margin: 3rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .review-card {
+      background: #fff;
+      border-radius: 6px;
+      padding: 1.8rem;
+      box-shadow: 0 2px 16px rgba(61,43,26,0.08);
+    }
+
+    .review-stars { color: var(--gold); font-size: 1rem; margin-bottom: 0.8rem; }
+
+    .review-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--brown);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .review-author {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ───────── FLOATING MAP BUTTON ───────── */
+    .float-map-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 900;
+      background: var(--espresso);
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.4);
+      padding: 0.9rem 1.4rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+      transition: all 0.25s;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .float-map-btn:hover {
+      background: var(--gold);
+      color: var(--espresso);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(201,168,76,0.3);
+    }
+
+    .float-map-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+    /* ───────── FOOTER ───────── */
+    footer {
+      background: var(--espresso);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .footer-logo span { color: var(--cream); font-style: italic; }
+
+    footer p {
+      color: rgba(232,213,192,0.5);
+      font-size: 0.82rem;
+      margin-top: 0.5rem;
+      line-height: 1.7;
+    }
+
+    footer a { color: var(--gold); text-decoration: none; }
+
+    .footer-divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(201,168,76,0.3);
+      margin: 1.5rem auto;
+    }
+
+    /* ───────── ANIMATIONS ───────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ───────── MOBILE NAV ───────── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 70px; left: 0; right: 0;
+      background: rgba(26,18,8,0.98);
+      backdrop-filter: blur(12px);
+      z-index: 999;
+      padding: 1.5rem 2rem 2rem;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      color: var(--blush);
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-family: 'Playfair Display', serif;
+      transition: color 0.2s;
+    }
+
+    .mobile-menu a:hover { color: var(--gold); }
+
+    /* ───────── RESPONSIVE ───────── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+
+      .visit-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .map-container { height: 300px; }
+
+      .menu-tabs { max-width: 100%; }
+      .tab { font-size: 0.68rem; padding: 0.7rem 0.6rem; }
+
+      .float-map-btn { bottom: 1.2rem; right: 1.2rem; padding: 0.75rem 1.1rem; font-size: 0.72rem; }
+
+      .hero-title { font-size: clamp(3rem, 14vw, 5rem); }
+    }
+
+    @media (max-width: 480px) {
+      .about-stats { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .stat { padding: 1.2rem; }
+      .stat-num { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav id="navbar">
+    <a class="nav-logo" href="#hero">BLOOM <span>x Bites</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#visit">Visit Us</a></li>
+      <li><a href="mailto:hobartcoffeemerchants@gmail.com" class="nav-cta">Book / Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="#menu" onclick="closeMobile()">Menu</a>
+    <a href="#reviews" onclick="closeMobile()">Reviews</a>
+    <a href="#visit" onclick="closeMobile()">Visit Us</a>
+    <a href="mailto:hobartcoffeemerchants@gmail.com" onclick="closeMobile()">Contact</a>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grain"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Specialty Coffee · Hobart TAS</p>
+      <h1 class="hero-title">BLOOM<br><em>Coffee</em></h1>
+      <p class="hero-sub">Where every cup blooms into something beautiful</p>
+      <div class="hero-badges">
+        <span class="badge"><span class="star">★</span> 4.8 Google Rating</span>
+        <span class="badge">📍 102 Collins St, Hobart</span>
+        <span class="badge">☕ Specialty Brunch</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#menu" class="btn-primary">Explore Our Menu</a>
+        <a href="#visit" class="btn-outline">Find Us</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-text reveal">
+        <h2>More than a café.<br><em>A moment.</em></h2>
+        <p>BLOOM Coffee x Bites is Hobart's go-to destination for specialty coffee, creative brunch, and signature drinks that push the boundaries of what a café can offer.</p>
+        <p>From our house-brewed chai to our Korean fried chicken burger and Kimchi French Toast, every item on our menu is crafted with intention — and a touch of flair.</p>
+        <p>Nestled in the heart of the CBD at 102 Collins Street, we're the place to bloom into your day.</p>
+      </div>
+      <div class="about-stats reveal">
+        <div class="stat">
+          <div class="stat-num">4.8★</div>
+          <div class="stat-label">Google Rating</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">128+</div>
+          <div class="stat-label">Happy Reviews</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">30+</div>
+          <div class="stat-label">Menu Items</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">6</div>
+          <div class="stat-label">Signature Drinks</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MENU ── -->
+  <section id="menu">
+    <div class="section-header reveal">
+      <p class="eyebrow">What We Serve</p>
+      <h2>Our <em>Menu</em></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="menu-tabs reveal">
+      <button class="tab active" data-tab="brunch">Brunch</button>
+      <button class="tab" data-tab="coffee">Coffee</button>
+      <button class="tab" data-tab="drinks">Drinks</button>
+      <button class="tab" data-tab="signature">Signature</button>
+      <button class="tab" data-tab="smoothies">Smoothies</button>
+      <button class="tab" data-tab="addons">Add-Ons</button>
+    </div>
+
+    <!-- BRUNCH -->
+    <div class="menu-section active" id="tab-brunch">
+      <div class="menu-grid">
+        <div class="menu-card"><div class="card-top"><span class="card-name">Sourdough Toast</span><span class="card-price">$8</span></div><p class="card-desc">With butter. Side of Jam or Vegemite.</p><div class="card-tags"><span class="tag">GFO</span></div></div>
+        <div class="menu-card"><div class="card-top"><span class="card-name">Fresh Fruit Bircher Muesli</span><span class="card-price">$19</span></div><p class="card-desc">Mixed berries yoghurt, seasonal fresh fruit, housemade maple granola, toasted mixed seeds & nuts.</p></div>
+        <div class="menu-card"><div class="card-top"><span class="card-name">OG Avocado Smash</span><span class="card-price">$23</span></div><p class="card-desc">Lemon infused smashed avocado, poached eggs, cherry tomatoes, crumbled fetta, housemade beetroot spread, balsamic glaze, bagel seasoning, on sourdough.</p><div class="card-tags"><span class="tag">VGO</span><span class="tag">GFO</span></div></div>
+        <div class="menu-card"><div class="card-top"><span class="card-name">Eggs On Toast (Your Way)</span><span class="card-price">$15</span></div><p class="card-desc">Two free range eggs — poached, scrambled or sunny side. Add tomato relish +$1.50.</p></div>
+        <div class="menu-card"><div class="card-top"><span class="card-name">Classic Eggs Benny</span><span class="card-price">$23</span></div><p class="card-desc">Bacon, free range poached eggs, house-made Hollandaise, mixed leaves, maple vinaigrette, dukkah, thick sourdough toast.</p><div class="card-tags"><span class="tag">GFO</span></div></div>
+        <div class="menu-card"><div class="card-top"><span class="card-name">Chorizo Baked Eggs</span><span class="card-price">$25</span></div><p class="card-desc">Housemade rich tomato sugo with mixed beans, chorizo, free range eggs, fetta and sourdough toast.</p><div class="card-tags"><span class="tag">GFO</span></div></div>
+        <div class="menu-card"><div class="card-top"><span class="card-name">Chickpea & Avocado Salad</span><span class="card-price">$19</span></div><p class="card-desc">Thyme infused mushroom, cherry tomatoes, avocado, chickpeas, mixed greens, vinaigrette, pine nuts, crumbled fetta, dukkah. Add sous vide chicken +$6.</p><div class="card-tags"><span class="tag">GF</span><span class="tag">VGO</span></div></div>
+        <div class="menu-card"><div class="card-top"><span class="card-name">Mushroom & Haloumi Benedict</span><span class="card-price">$24</span></div><p class="card-desc">Seasonal mushroom, grilled haloumi, free range poached eggs, house-made Hollandaise, mixed leaves, lemon vinaigrette, dukkah, thick sourdough toast.</p><div class="card-tags"><span class="tag">GFO</span></div></div>
+        <div class="menu-card"><div class="card-top"><span class="card-name">Korean Fried Chicken Burger</span><span class="card-price">$24</span></div><p class="card-desc">Crispy fried chicken, homemade gochujang sauce, kimchi slaw, side of fries.</p></div>
+        <div class="menu-card"><div class="card-top"><span class="card-name">Kimchi French Toast</span><span class="card-price">$23</span></div><p class="card-desc">Scrambled egg, tteokbokki rice cake, kimchi slaw, brioche french toast, kewpie mayo, spring onion, fried shallots.</p></div>
+        <div class="menu-card"><div class="card-top"><span class="card-name">Double Smash Burger</span><span class="card-price">$24</span></div><p class="card-desc">Double smashed beef patties, double cheese, caramelised onion, lettuce, tomato, Bloom's special sauce, brioche bun.</p></div>
+        <div class="menu-card"><div class="card-top"><span class="card-name">Prawn Fettuccini</span><span class="card-price">$27</span></div><p class="card-desc">Prawns in cherry tomato, garlic, lemon juice & onion base, parsley, parmesan, fettuccini, basil oil.</p></div>
+        <div class="menu-card"><div class="card-top"><span class="card-name">Keto Brekky Bowl</span><span class="card-price">$24</span></div><p class="card-desc">Avocado, 2 fried eggs, crispy bacon, seasonal mushroom, grilled haloumi, mixed leaves, maple vinaigrette, dukkah.</p><div class="card-tags"><span class="tag">GF</span></div></div>
+        <div class="menu-card"><div class="card-top"><span class="card-name">French Toast</span><span class="card-price">$22</span></div><p class="card-desc">Brioche french toast, local ice cream, mixed berries, lemon curd, berry compote. Add maple bacon +$6.</p></div>
+      </div>
+    </div>
+
+    <!-- COFFEE -->
+    <div class="menu-section" id="tab-coffee">
+      <div class="drinks-grid" style="max-width:900px;margin:0 auto;">
+        <div class="drinks-group">
+          <h3>Black / White — $4.50</h3>
+          <div class="drink-item"><span class="drink-name">Espresso</span></div>
+          <div class="drink-item"><span class="drink-name">Long Black</span></div>
+          <div class="drink-item"><span class="drink-name">Flat White</span></div>
+          <div class="drink-item"><span class="drink-name">Cappuccino</span></div>
+          <div class="drink-item"><span class="drink-name">Latte</span></div>
+        </div>
+        <div class="drinks-group">
+          <h3>Cold Coffee</h3>
+          <div class="drink-item"><span class="drink-name">Batch Brew</span><span class="drink-price">$4.50</span></div>
+          <div class="drink-item"><span class="drink-name">Cold Brew</span><span class="drink-price">$5.70</span></div>
+          <div class="drink-item"><span class="drink-name">Iced Latte</span><span class="drink-price">$5.70</span></div>
+          <div class="drink-item"><span class="drink-name">Iced Long Black</span><span class="drink-price">$5.70</span></div>
+          <div class="drink-item"><span class="drink-name">Iced Coffee</span><span class="drink-price">$6.40</span></div>
+        </div>
+        <div class="drinks-group">
+          <h3>Extras</h3>
+          <div class="drink-item"><span class="drink-name">Alternate Milk (Oat, Almond, Soy, Coconut, Lactose free)</span><span class="drink-price">+$0.60</span></div>
+          <div class="drink-item"><span class="drink-name">Extra Shot</span><span class="drink-price">+$0.60</span></div>
+          <div class="drink-item"><span class="drink-name">Vegan Option</span><span class="drink-price">+$1.00</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DRINKS -->
+    <div class="menu-section" id="tab-drinks">
+      <div class="drinks-grid" style="max-width:1000px;margin:0 auto;">
+        <div class="drinks-group">
+          <h3>Tea — $5.50</h3>
+          <div class="drink-item"><span class="drink-name">English Breakfast, Earl Grey, Sencha Green, Peppermint, Lemongrass, Chamomile</span></div>
+        </div>
+        <div class="drinks-group">
+          <h3>Mork Drinking Chocolate</h3>
+          <div class="drink-item"><span class="drink-name">Hot 70% Dark</span><span class="drink-price">$4.80</span></div>
+          <div class="drink-item"><span class="drink-name">Hot 85% Dark</span><span class="drink-price">$4.80</span></div>
+          <div class="drink-item"><span class="drink-name">Iced 70% Dark</span><span class="drink-price">$6.40</span></div>
+          <div class="drink-item"><span class="drink-name">Iced 85% Dark</span><span class="drink-price">$6.40</span></div>
+        </div>
+        <div class="drinks-group">
+          <h3>Brewed Chai</h3>
+          <div class="drink-item"><span class="drink-name">Chai Latte <span class="drink-sub">with local wild flower honey</span></span><span class="drink-price">$4.80</span></div>
+          <div class="drink-item"><span class="drink-name">Iced Chai</span><span class="drink-price">$6.40</span></div>
+        </div>
+        <div class="drinks-group">
+          <h3>Matcha</h3>
+          <div class="drink-item"><span class="drink-name">Matcha Latte</span><span class="drink-price">$4.80</span></div>
+          <div class="drink-item"><span class="drink-name">Iced Matcha</span><span class="drink-price">$6.40</span></div>
+        </div>
+        <div class="drinks-group">
+          <h3>Shakes — $9.00</h3>
+          <div class="drink-item"><span class="drink-name">Dark Chocolate Shake <span class="drink-sub">85% dark chocolate, ice cream, milk</span></span></div>
+          <div class="drink-item"><span class="drink-name">Caramel Matcha Shake <span class="drink-sub">matcha, caramel, ice cream, oat milk</span></span></div>
+          <div class="drink-item"><span class="drink-name">Vanilla Coffee Frappe <span class="drink-sub">double espresso, vanilla, ice, milk</span></span><span class="drink-price">$8</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="menu-section" id="tab-signature">
+      <div class="sig-grid">
+        <div class="sig-card"><div class="card-top"><span class="card-name">Strawberry Matcha</span><span class="card-price">$9.50</span></div><p class="card-desc">Housemade strawberry puree, matcha, vanilla cold foam, milk, ice.</p></div>
+        <div class="sig-card"><div class="card-top"><span class="card-name">Coconut Matcha Cloud</span><span class="card-price">$9.50</span></div><p class="card-desc">Coconut water, matcha cold foam, ice.</p></div>
+        <div class="sig-card"><div class="card-top"><span class="card-name">Mango Matcha</span><span class="card-price">$9.50</span></div><p class="card-desc">Housemade mango puree, matcha, vanilla foam top, milk, ice.</p></div>
+        <div class="sig-card"><div class="card-top"><span class="card-name">Matcha Biscoff</span><span class="card-price">$9.50</span></div><p class="card-desc">Matcha, home-made Biscoff sauce, milk, vanilla cold foam, ice, lotus cookie crumbs.</p></div>
+        <div class="sig-card"><div class="card-top"><span class="card-name">Mont Blanc</span><span class="card-price">$9.00</span></div><p class="card-desc">Cold brew, home-made orange syrup, vanilla cream float, ice, nutmeg dust.</p></div>
+        <div class="sig-card"><div class="card-top"><span class="card-name">Biscoff Iced Latte</span><span class="card-price">$9.50</span></div><p class="card-desc">Double espresso, home-made Biscoff sauce, vanilla cream float, milk, ice, lotus cookie crumbs.</p></div>
+      </div>
+    </div>
+
+    <!-- SMOOTHIES -->
+    <div class="menu-section" id="tab-smoothies">
+      <div class="menu-grid" style="max-width:900px;margin:0 auto;">
+        <div class="menu-card"><div class="card-top"><span class="card-name">Choco Warrior</span><span class="card-price">$12.80</span></div><p class="card-desc">Cacao, peanut butter, banana, dates, protein, maca, oat milk.</p></div>
+        <div class="menu-card"><div class="card-top"><span class="card-name">Berry Breakfast</span><span class="card-price">$12.80</span></div><p class="card-desc">Mixed berries, dragonfruit, honey, coconut yoghurt, coconut milk.</p></div>
+        <div class="menu-card"><div class="card-top"><span class="card-name">Mango Passion</span><span class="card-price">$12.80</span></div><p class="card-desc">Mango, passionfruit, honey, coconut yoghurt, coconut milk.</p></div>
+        <div class="menu-card"><div class="card-top"><span class="card-name">Super Green</span><span class="card-price">$12.80</span></div><p class="card-desc">Spinach, kale, pineapple, banana, dates, almond milk.</p></div>
+      </div>
+    </div>
+
+    <!-- ADD-ONS -->
+    <div class="menu-section" id="tab-addons">
+      <div class="drinks-grid" style="max-width:700px;margin:0 auto;">
+        <div class="drinks-group">
+          <h3>Food Add-Ons</h3>
+          <div class="drink-item"><span class="drink-name">Tomato Relish</span><span class="drink-price">$1.50</span></div>
+          <div class="drink-item"><span class="drink-name">Hollandaise</span><span class="drink-price">$3.50</span></div>
+          <div class="drink-item"><span class="drink-name">Free Range Egg</span><span class="drink-price">$3.50</span></div>
+          <div class="drink-item"><span class="drink-name">Thyme Infused Mushroom</span><span class="drink-price">$6.00</span></div>
+          <div class="drink-item"><span class="drink-name">Bacon</span><span class="drink-price">$6.00</span></div>
+          <div class="drink-item"><span class="drink-name">Sous Vide Chicken</span><span class="drink-price">$6.00</span></div>
+          <div class="drink-item"><span class="drink-name">Avocado</span><span class="drink-price">$4.00</span></div>
+          <div class="drink-item"><span class="drink-name">Grilled Haloumi</span><span class="drink-price">$4.00</span></div>
+          <div class="drink-item"><span class="drink-name">Roasted Tomato</span><span class="drink-price">$4.00</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── REVIEWS ── -->
+  <section id="reviews">
+    <div class="section-header reveal">
+      <p class="eyebrow">What People Say</p>
+      <h2>Loved by <em>Hobart</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The Kimchi French Toast blew my mind. Never thought a café in Hobart would push flavours like this. Absolutely coming back."</p>
+        <span class="review-author">— Google Reviewer</span>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Best coffee on Collins Street, hands down. The Strawberry Matcha is an absolute vibe and the staff make you feel right at home."</p>
+        <span class="review-author">— Google Reviewer</span>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Hidden gem in the CBD. The Chorizo Baked Eggs and a cold brew on a winter morning — perfection. Consistently brilliant."</p>
+        <span class="review-author">— Google Reviewer</span>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+      <a href="https://www.google.com/search?q=Bloom+coffee+hobart#reviews" target="_blank" rel="noopener" class="btn-primary" style="display:inline-block;">Read All 128 Reviews</a>
+    </div>
+  </section>
+
+  <!-- ── VISIT ── -->
+  <section id="visit">
+    <div class="visit-inner">
+      <div class="visit-info reveal">
+        <div class="section-header" style="text-align:left;margin-bottom:2rem;">
+          <p class="eyebrow" style="color:var(--gold);">Come See Us</p>
+          <h2 style="color:var(--cream);font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);">Find Us in <em style="color:var(--gold);font-style:italic;">Hobart</em></h2>
+        </div>
+
+        <div class="open-badge"><span class="open-dot"></span> Open Now · 10am – 6pm</div>
+
+        <div class="info-block">
+          <h4>Address</h4>
+          <p>102 Collins St, Hobart TAS 7000</p>
+        </div>
+
+        <div class="info-block">
+          <h4>Hours</h4>
+          <div class="hours-table">
+            <div class="hours-row"><span>Monday – Friday</span><span>10:00am – 6:00pm</span></div>
+            <div class="hours-row"><span>Saturday</span><span>10:00am – 6:00pm</span></div>
+            <div class="hours-row"><span>Sunday</span><span>10:00am – 6:00pm</span></div>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <h4>Contact</h4>
+          <a href="mailto:hobartcoffeemerchants@gmail.com">hobartcoffeemerchants@gmail.com</a>
+        </div>
+
+        <div class="info-block">
+          <h4>Follow Along</h4>
+          <div class="social-links">
+            <a href="https://www.instagram.com/bloomcoffeexbites/" target="_blank" rel="noopener" class="social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              Instagram
+            </a>
+            <a href="https://web.facebook.com/BloomCoffeeXBites/" target="_blank" rel="noopener" class="social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Facebook
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2917.3!2d147.3272!3d-42.8821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xaa6e756cdf931741%3A0x82535f7083595d5b!2sBloom%20coffee%20hobart!5e0!3m2!1sen!2sau!4v1680000000000!5m2!1sen!2sau"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="BLOOM Coffee x Bites Location - 102 Collins St Hobart">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-logo">BLOOM <span>x Bites</span></div>
+    <div class="footer-divider"></div>
+    <p>102 Collins St, Hobart TAS 7000</p>
+    <p>
+      <a href="mailto:hobartcoffeemerchants@gmail.com">hobartcoffeemerchants@gmail.com</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.instagram.com/bloomcoffeexbites/" target="_blank" rel="noopener">@bloomcoffeexbites</a>
+    </p>
+    <p style="margin-top:1.5rem;font-size:0.72rem;opacity:0.4;">© 2025 BLOOM Coffee x Bites. All rights reserved.</p>
+  </footer>
+
+  <!-- ── FLOATING MAP BUTTON ── -->
+  <a class="float-map-btn" href="https://maps.google.com/?q=102+Collins+St+Hobart+TAS+7000" target="_blank" rel="noopener" aria-label="Open in Google Maps">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+      <circle cx="12" cy="10" r="3"/>
+    </svg>
+    Get Directions
+  </a>
+
+  <script>
+    // ── Sticky Nav ──
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ── Hamburger ──
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+    }
+
+    // ── Menu Tabs ──
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.menu-section').forEach(s => s.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    // ── Scroll Reveal ──
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
